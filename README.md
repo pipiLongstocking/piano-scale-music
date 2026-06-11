@@ -37,7 +37,29 @@ A web-based virtual piano application optimized for Hindustani Classical Music p
 ## Local Hosting
 Since this is built with clean Vanilla HTML, CSS, and Javascript, it does not require any compile/build steps.
 
-You can run it directly:
-* Python 3: `python3 -m http.server 8000`
-* Node/npx: `npx http-server`
-* Or double-click the `index.html` file to open it in your browser.
+You can manage the local server using the `./run.sh` script:
+
+* **Start the server** (default port 8080):
+  ```bash
+  bash run.sh start
+  # or simply:
+  bash run.sh
+  ```
+* **Start on a custom port** (e.g., 9000):
+  ```bash
+  bash run.sh start 9000
+  # or simply:
+  bash run.sh 9000
+  ```
+* **Stop the server**:
+  ```bash
+  bash run.sh stop
+  ```
+* **Restart the server**:
+  ```bash
+  bash run.sh restart
+  ```
+* **Check status**:
+  ```bash
+  bash run.sh status
+  ```
