@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful Hindustani Virtual Piano using Google Material Theme. Anchor C to Sa and easily shift scales using transpositions and octave mapping.">
+    <title>Hindustani Virtual Piano - C=Sa Scale Transposer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+        <!-- Header: Brand Title & Scale Display -->
+        <header>
+            <div class="brand-section">
+                <h1>Hindustani Piano</h1>
+                <p>Anchor: C = Sa (Fixed Layout) | Play in Any Scale</p>
+            </div>
+            
+            <div class="status-pill" id="scale-indicator" title="Current Root Pitch scale">
+                <span>Scale:</span>
+                <span class="scale-val" id="scale-val">C</span>
+            </div>
+        </header>
+
+        <!-- Control Panel Section -->
+        <section class="control-panel" aria-label="Keyboard controls">
+            
+            <!-- Scale Shift Control -->
+            <div class="control-group">
+                <span class="control-label">Scale Transpose</span>
+                <div class="control-row">
+                    <button class="btn" id="btn-dec-scale" title="Decrease scale by half step (Key: -)" aria-label="Decrease scale">-</button>
+                    <button class="btn" id="btn-inc-scale" title="Increase scale by half step (Key: +)" aria-label="Increase scale">+</button>
+                </div>
+            </div>
+
+            <!-- Octave Shift Control -->
+            <div class="control-group">
+                <span class="control-label">Keyboard Octave</span>
+                <div class="control-row">
+                    <button class="btn" id="btn-dec-octave" title="Shift octave down (Key: Z)" aria-label="Octave Down">Z</button>
+                    <span class="octave-display" id="octave-val">Octave 4</span>
+                    <button class="btn" id="btn-inc-octave" title="Shift octave up (Key: X)" aria-label="Octave Up">X</button>
+                </div>
+            </div>
+
+            <!-- Sustain Toggle Control -->
+            <div class="control-group">
+                <span class="control-label">Sustain (Pedal)</span>
+                <div class="control-row">
+                    <label class="switch-container" for="sustain-checkbox">
+                        <span class="switch">
+                            <input type="checkbox" id="sustain-checkbox" checked>
+                            <span class="slider"></span>
+                        </span>
+                        <span class="octave-display" id="sustain-label">Enabled</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Volume Control -->
+            <div class="control-group">
+                <span class="control-label">Master Volume</span>
+                <div class="control-row">
+                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Master Volume">
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Piano Keyboard Viewport -->
+        <section class="keyboard-viewport" id="keyboard-viewport" aria-label="Piano keys viewport">
+            <!-- Rendered dynamically via app.js -->
+            <div class="keyboard" id="keyboard"></div>
+        </section>
+
+        <!-- Keyboard Keymap/Legend Footer -->
+        <footer>
+            <div class="guide-legend">
+                <div class="legend-item">
+                    <span>Shift Scale:</span>
+                    <span class="keycap">-</span>
+                    <span>/</span>
+                    <span class="keycap">+</span>
+                </div>
+                <div class="legend-item">
+                    <span>Shift Octave:</span>
+                    <span class="keycap">Z</span>
+                    <span>/</span>
+                    <span class="keycap">X</span>
+                </div>
+            </div>
+            <div>
+                <span>Press keys or click on notes to play. Make sure to click anywhere on the page first to enable sound.</span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Script Imports -->
+    <script src="audio.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
